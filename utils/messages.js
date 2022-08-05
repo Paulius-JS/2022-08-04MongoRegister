@@ -1,0 +1,13 @@
+export let msg1 = "Name field is empty";
+export let msg2 = "Last Name field is empty";
+export let msg3 = "Adress field is empty";
+export let msg4 = "Phone number field is empty";
+export let msg5 = "E.Mail field is empty";
+export let msg6 = "Social security number field is empty";
+export let msg7 = "This soc number alredy exist";
+export let msg8 = "Email alredy exist";
+export let msg9 = "All fields are empty";
+export let msgSFD = "Student successfully deleted from list.";
+export let msgEL = "Empty list.";
+export let msgDanger = "danger";
+export let msgSuccess = "success";
