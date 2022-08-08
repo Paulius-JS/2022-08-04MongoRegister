@@ -7,6 +7,7 @@ export let msg6 = "Social security number field is empty";
 export let msg7 = "This soc number alredy exist";
 export let msg8 = "Email alredy exist";
 export let msg9 = "All fields are empty";
+export let msg10 = "Phone number is wrong";
 export let msgSFD = "Student successfully deleted from list.";
 export let msgEL = "Empty list.";
 export let msgDanger = "danger";

@@ -42,7 +42,12 @@
       <label for="floatingInput">Adress</label>
     </div>
     <br />
-    <div class="form-floating">
+
+    <br />
+    {{!  }}
+    <div class="input-group has-validation">
+      <span class="input-group-text">+370</span>
+
       <input
         value="{{formInfo.phone}}"
         type="number"
@@ -51,9 +56,12 @@
         id="floatingInput"
         placeholder="Phone number"
       />
-      <label for="floatingInput">Phone number</label>
+      <div class="invalid-feedback">
+        Phone number
+      </div>
     </div>
     <br />
+    {{! ///// }}
     <div class="form-floating">
       <input
         value="{{formInfo.email}}"
@@ -64,6 +72,7 @@
         placeholder="e@mail"
       />
       <label for="floatingInput">e@mail</label>
+
     </div>
     <br />
     <div class="form-floating">

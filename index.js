@@ -12,6 +12,7 @@ import {
   msg7,
   msg8,
   msg9,
+  msg10,
   msgDanger,
   msgSuccess,
   msgSFD,
@@ -19,7 +20,7 @@ import {
 } from "./utils/messages.js";
 
 //Uncoment only for test pruposes
-// import RegisterTest from "./utils/RegisterDb, Test.js";
+// import RegisterTest from "./utils/RegisterDbTest.js";
 
 const app = express();
 
@@ -116,12 +117,19 @@ app.post("/add", async (req, res) => {
       formInfo,
     });
 
+  if (req.body.phone.length < 8 || req.body.phone.length > 9)
+    return res.render("./add", {
+      message: msg10,
+      status: msgDanger,
+      formInfo,
+    });
+
   try {
     const newStudent = new studentlist();
     (newStudent.name = req.body.name),
       (newStudent.lastName = req.body.lastName),
       (newStudent.adress = req.body.adress),
-      (newStudent.phone = req.body.phone),
+      (newStudent.phone = "+370" + req.body.phone),
       (newStudent.email = req.body.email),
       (newStudent.SocNumb = req.body.SocNumb);
     await newStudent.save();
@@ -146,6 +154,22 @@ app.get("/list", async (req, res) => {
     });
   }
   res.render("list", options);
+});
+
+app.post("/list", async (req, res) => {
+  let printer = await studentlist.find();
+  const checkedItemId = req.body.checkbox;
+  let uniq = printer.find((user) => {
+    user._id;
+  });
+  if (Array.isArray(req.body.checkbox)) {
+    for (let i = 0; i < req.body.checkbox.length; i++) {
+      await studentlist.findByIdAndDelete(req.body.checkbox[i]);
+    }
+  } else {
+    await studentlist.findByIdAndDelete(req.body.checkbox);
+  }
+  return res.redirect("/list?success=1", uniq, { printer });
 });
 
 app.get("/delete/:id", async (req, res) => {
